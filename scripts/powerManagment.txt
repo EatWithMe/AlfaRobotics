@@ -1,0 +1,14 @@
+if :MaxPower==1 then :FuelChamberUnitRateLimit=100 goto 1 end
+if :Battery<9800 then :FuelChamberUnitRateLimit+=1 goto 06 end
+if :Battery>9900 then :FuelChamberUnitRateLimit-=2 goto 05 end
+:FuelChamberUnitRateLimit=:FuelChamberUnitRate
+if :FuelChamberUnitRateLimit<=0 then :FuelChamberUnitRateLimit=0 end
+if:FuelChamberUnitRateLimit>=100 then:FuelChamberUnitRateLimit=100 end
+goto 1
+
+// this script alway trying to leave Battery in range 9800 to 9900
+//if you dont need MaxPower Button comment first line
+//You need to set :Battery to second line of one of your batteries
+//and you need to set ours generators 1 and 2 lines to default
+//FuelChamberUnitRateLimit and :FuelChamberUnitRate
+//or just rename it here
